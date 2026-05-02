@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل الدخول | Hyundai Service Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <div>
+          <h1>Hyundai Service Hub</h1>
+          <p>شركة هيونداي - سوريا</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-container auth-page">
+      <section class="auth-layout">
+        <article class="auth-hero">
+          <span class="auth-chip">Hyundai Syria</span>
+          <h2>بوابة الدخول الموحدة</h2>
+          <p>
+            واجهة دخول موحدة ومناسبة لمدير النظام (Admin) ومستخدم النظام (User)
+            ضمن بيئة عربية واضحة وسهلة.
+          </p>
+          <div class="auth-features">
+            <div class="auth-feature">تجربة دخول واحدة ومتناغمة لكافة أنواع المستخدمين</div>
+            <div class="auth-feature">دعم إدارة بيانات ما بعد البيع بكفاءة</div>
+            <div class="auth-feature">مهيأ للاستخدام في بيئة العمل السورية</div>
+          </div>
+        </article>
+
+        <div class="card auth-card">
+          <h2>تسجيل الدخول للنظام</h2>
+          <p>أدخل بيانات الحساب للوصول إلى النظام.</p>
+          <div class="auth-roles" aria-label="أنواع المستخدمين">
+            <span class="auth-role-tag">Admin</span>
+            <span class="auth-role-tag">User</span>
+          </div>
+          <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="username">اسم المستخدم</label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                placeholder="اسم المستخدم أو بريد المدير"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">كلمة المرور</label>
+              <input id="password" name="password" type="password" placeholder="••••••••" required />
+            </div>
+            <button class="btn btn-primary full-width" type="submit">تسجيل الدخول</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/login.js"></script>
+  </body>
+</html>

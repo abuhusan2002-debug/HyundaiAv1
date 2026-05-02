@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إدارة حسابات العملاء | Hyundai Syria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <div>
+          <h1>نظام مدير ما بعد البيع</h1>
+          <p>شركة هيونداي - سوريا</p>
+        </div>
+      </div>
+      <button id="logoutBtn" class="btn btn-outline" type="button">تسجيل الخروج</button>
+    </header>
+
+    <nav class="main-nav">
+      <a data-nav href="/admin/dashboard">الرئيسية</a>
+      <a data-nav href="/admin/customers">حسابات العملاء</a>
+      <a data-nav href="/admin/customer-cars">سيارات العملاء</a>
+      <a data-nav href="/admin/showroom-cars">سيارات المعرض</a>
+      <a data-nav href="/admin/technicians">الفنيون</a>
+      <a data-nav href="/admin/maintenance-requests">طلبات الصيانة</a>
+      <a data-nav href="/admin/spare-parts">قطع الغيار</a>
+    </nav>
+
+    <main class="page-container">
+      <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+
+      <section class="page-head">
+        <h2>إدارة حسابات العملاء</h2>
+        <p>إنشاء حسابات فقط للعملاء الذين اشتروا من شركة هيونداي أو وكالة معتمدة.</p>
+      </section>
+
+      <section class="card">
+        <h3 id="customerFormTitle">إنشاء حساب عميل جديد</h3>
+        <form id="customerForm">
+          <input id="customerId" type="hidden" />
+          <div class="form-grid">
+            <div class="form-group">
+              <label>اسم العميل</label>
+              <input name="fullName" required />
+            </div>
+            <div class="form-group">
+              <label>رقم الجوال</label>
+              <input name="phone" required />
+            </div>
+            <div class="form-group">
+              <label>كلمة المرور للحساب</label>
+              <input
+                id="customerPassword"
+                name="password"
+                type="password"
+                minlength="8"
+                placeholder="8 أحرف على الأقل"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>اسم المستخدم</label>
+              <input name="username" required />
+            </div>
+            <div class="form-group">
+              <label>المحافظة</label>
+              <select name="city" required>
+                <option value="">اختر المحافظة</option>
+                <option value="دمشق">دمشق</option>
+                <option value="ريف دمشق">ريف دمشق</option>
+                <option value="حلب">حلب</option>
+                <option value="حماة">حماة</option>
+                <option value="حمص">حمص</option>
+                <option value="دير الزور">دير الزور</option>
+                <option value="درعا">درعا</option>
+                <option value="طرطوس">طرطوس</option>
+                <option value="اللاذقية">اللاذقية</option>
+                <option value="الرقة">الرقة</option>
+                <option value="الحسكة">الحسكة</option>
+                <option value="السويداء">السويداء</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>مصدر الشراء</label>
+              <select name="purchaseSource" required>
+                <option value="">اختر</option>
+                <option value="شركة هيونداي">شركة هيونداي</option>
+                <option value="وكالة معتمدة">وكالة معتمدة</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label>ملاحظات</label>
+              <textarea name="notes" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="actions-row">
+            <button id="customerSubmitBtn" class="btn btn-primary" type="submit">إضافة العميل</button>
+            <button
+              id="customerCancelEditBtn"
+              class="btn"
+              type="button"
+              style="display: none"
+            >
+              إلغاء التعديل
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h3>العملاء المسجلون</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>الاسم</th>
+                <th>الجوال</th>
+                <th>اسم المستخدم</th>
+                <th>المحافظة</th>
+                <th>مصدر الشراء</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="customersTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="customerDetailsModal" class="modal-backdrop" style="display: none">
+        <div class="modal-card customer-details-modal">
+          <div class="customer-details-head">
+            <h3>تفاصيل حساب العميل</h3>
+            <button id="closeCustomerDetailsBtn" class="btn" type="button">إغلاق</button>
+          </div>
+          <div id="customerDetailsBody" class="customer-details-body"></div>
+          <div class="actions-row customer-details-actions">
+            <button id="customerDetailsEditBtn" class="btn btn-primary" type="button">تعديل</button>
+            <button id="customerDetailsDeleteBtn" class="btn btn-danger" type="button">حذف</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/app-common.js"></script>
+    <script src="/js/pages/customers.js"></script>
+  </body>
+</html>

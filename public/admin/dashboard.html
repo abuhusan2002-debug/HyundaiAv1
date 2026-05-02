@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة مدير ما بعد البيع | Hyundai Syria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <div>
+          <h1>نظام مدير ما بعد البيع</h1>
+          <p>شركة هيونداي - سوريا</p>
+        </div>
+      </div>
+      <button id="logoutBtn" class="btn btn-outline" type="button">تسجيل الخروج</button>
+    </header>
+
+    <nav class="main-nav">
+      <a data-nav href="/admin/dashboard">الرئيسية</a>
+      <a data-nav href="/admin/customers">حسابات العملاء</a>
+      <a data-nav href="/admin/customer-cars">سيارات العملاء</a>
+      <a data-nav href="/admin/showroom-cars">سيارات المعرض</a>
+      <a data-nav href="/admin/technicians">الفنيون</a>
+      <a data-nav href="/admin/maintenance-requests">طلبات الصيانة</a>
+      <a data-nav href="/admin/spare-parts">قطع الغيار</a>
+    </nav>
+
+    <main class="page-container">
+      <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+
+      <section class="page-head">
+        <h2>الصفحة الرئيسية</h2>
+        <p>لوحة شاملة لإدارة العملاء، سياراتهم، سيارات المعرض، الفنيين وقطع الغيار.</p>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <h3>العملاء</h3>
+          <strong id="customersCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <h3>سيارات العملاء</h3>
+          <strong id="customerCarsCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <h3>سيارات المعرض</h3>
+          <strong id="showroomCarsCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <h3>الفنيون المختصون</h3>
+          <strong id="techniciansCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <h3>قطع الغيار</h3>
+          <strong id="sparePartsCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <h3>طلبات الصيانة</h3>
+          <strong id="maintenanceRequestsCount">0</strong>
+        </article>
+      </section>
+    </main>
+
+    <script src="/js/app-common.js"></script>
+    <script src="/js/pages/dashboard.js"></script>
+  </body>
+</html>
+
+

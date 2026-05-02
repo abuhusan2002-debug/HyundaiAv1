@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إضافة سيارة للعميل | Hyundai Syria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <div>
+          <h1>نظام مدير ما بعد البيع</h1>
+          <p>شركة هيونداي - سوريا</p>
+        </div>
+      </div>
+      <button id="logoutBtn" class="btn btn-outline" type="button">تسجيل الخروج</button>
+    </header>
+
+    <nav class="main-nav">
+      <a data-nav href="/admin/dashboard">الرئيسية</a>
+      <a data-nav href="/admin/customers">حسابات العملاء</a>
+      <a data-nav href="/admin/customer-cars">سيارات العملاء</a>
+      <a data-nav href="/admin/showroom-cars">سيارات المعرض</a>
+      <a data-nav href="/admin/technicians">الفنيون</a>
+      <a data-nav href="/admin/maintenance-requests">طلبات الصيانة</a>
+      <a data-nav href="/admin/spare-parts">قطع الغيار</a>
+    </nav>
+
+    <main class="page-container">
+      <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+
+      <section class="page-head">
+        <h2>إضافة سيارة للعميل</h2>
+        <p>لا يمكن إضافة سيارة إلا إذا كان العميل يملك حساباً منشأ مسبقاً.</p>
+      </section>
+
+      <section class="card">
+        <h3 id="customerCarFormTitle">إضافة سيارة لعميل</h3>
+        <p id="noCustomersNotice" class="flash flash-error" style="display: none">
+          لا يوجد عملاء مسجلون. أنشئ حساب عميل أولاً.
+        </p>
+        <form id="customerCarForm">
+          <input id="customerCarId" type="hidden" />
+          <div class="form-grid">
+            <div class="form-group">
+              <label>اسم العميل الثلاثي</label>
+              <input
+                id="customerFullName"
+                name="customerFullName"
+                list="customerNamesList"
+                placeholder="اكتب الاسم الثلاثي للعميل"
+                required
+              />
+              <datalist id="customerNamesList"></datalist>
+            </div>
+            
+            <div class="form-group">
+              <label>رقم جوال العميل</label>
+              <input
+                id="customerPhone"
+                name="customerPhone"
+                list="customerPhonesList"
+                placeholder="اكتب رقم جوال العميل"
+                required
+              />
+              <datalist id="customerPhonesList"></datalist>
+              <input id="customerId" name="customerId" type="hidden" />
+            </div>
+
+            <div class="form-group">
+              <label>اختر نوع السيارة</label>
+              <select name="carType" id="carTypeSelect" required>
+                <option value="">اختر نوع السيارة</option>
+                <option value="سيدان">سيدان</option>
+                <option value="SUV">SUV</option>
+                <option value="كهربائية">كهربائية</option>
+                <option value="هجينة">هجينة</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>اسم السيارة</label>
+              <select name="carName" id="carNameSelect" required disabled>
+                <option value="">اختر نوع السيارة أولاً</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label>المواصفات المعتمدة (تلقائي من قاعدة البيانات)</label>
+              <div id="carSpecPreview" class="spec-preview-box">
+                <p id="carSpecPreviewStatus" class="muted">
+                  اختر نوع السيارة واسمها وسنة الموديل لعرض المواصفات المعتمدة.
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>سنة الموديل</label>
+              <input name="modelYear" type="number" min="2020" required />
+            </div>
+
+            <div class="form-group">
+              <label>VIN رقم الهيكل</label>
+              <input name="vin" required />
+            </div>
+
+            <div class="form-group">
+              <label>اللون</label>
+              <input name="color" required />
+            </div>
+
+            <div class="form-group">
+              <label>تاريخ الشراء</label>
+              <input name="purchaseDate" type="date" required />
+            </div>
+
+            <div class="form-group">
+              <label>السعر</label>
+              <input name="price" type="number" min="0" step="0.01" required />
+            </div>
+
+            <div class="form-group">
+              <label>العملة</label>
+              <select name="currency" required>
+                <option value="">اختر</option>
+                <option value="SYP">ل.س (SYP)</option>
+                <option value="USD">$ (USD)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>تاريخ انتهاء الضمان (اختياري)</label>
+              <input name="warrantyUntil" type="date" />
+            </div>
+
+            <div class="form-group full">
+              <label>ملاحظات</label>
+              <textarea name="notes" rows="2"></textarea>
+            </div>
+
+          </div>
+
+          <div class="actions-row">
+            <button id="customerCarSubmitBtn" class="btn btn-primary" type="submit">
+              إضافة السيارة
+            </button>
+
+            <button
+              id="customerCarCancelEditBtn"
+              class="btn"
+              type="button"
+              style="display: none"
+            >
+              إلغاء التعديل
+            </button>
+
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h3>سيارات العملاء المسجلة</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>العميل</th>
+                <th>نوع السيارة</th>
+                <th>اسم السيارة</th>
+                <th>الموديل</th>
+                <th>VIN</th>
+                <th>السعر</th>
+                <th>تاريخ الشراء</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="customerCarsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/app-common.js"></script>
+    <script src="/js/pages/customer-cars.js"></script>
+  </body>
+</html>
+
+

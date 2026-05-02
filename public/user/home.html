@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الرئيسية | Hyundai Service Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="user-body">
+    <header class="user-topbar">
+      <div class="user-brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <small>إدارة المركبات</small>
+      </div>
+      <nav class="user-nav-links">
+        <a data-user-nav href="/user/home">الرئيسية</a>
+        <a data-user-nav href="/user/my-cars">مركباتي</a>
+        <a data-user-nav href="/user/maintenance">الصيانة</a>
+        <a data-user-nav href="/user/smart-diagnosis">التشخيص الذكي</a>
+        <a data-user-nav href="/user/maintenance-guide">دليل الصيانة</a>
+        <a data-user-nav href="/user/fault-codes">أكواد الأعطال</a>
+        <a data-user-nav href="/user/spare-parts">قطع الغيار</a>
+        <a data-user-nav href="/user/service-centers">مراكز الخدمة</a>
+        <a data-user-nav href="/user/showroom-cars">الموديلات الجديدة</a>
+      </nav>
+      <button id="logoutBtn" class="btn btn-outline" type="button">تسجيل الخروج</button>
+    </header>
+
+    <main class="user-container">
+      <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+
+      <section class="user-hero centered">
+        <h1>مرحباً بك في تطبيق صيانة هيونداي</h1>
+        <p>أهلاً <strong id="welcomeName">-</strong>، إدارة مركباتك وخدماتك أصبحت أسهل.</p>
+        <div id="homeModels" class="model-list"></div>
+      </section>
+
+      <section class="user-stats-grid">
+        <article class="user-stat-card">
+          <h3>مركباتي</h3>
+          <strong id="homeCarsCount">0</strong>
+          <a href="/user/my-cars">فتح</a>
+        </article>
+        <article class="user-stat-card">
+          <h3>طلبات الصيانة</h3>
+          <strong id="homeMaintenanceCount">0</strong>
+          <a href="/user/maintenance">فتح</a>
+        </article>
+        <article class="user-stat-card">
+          <h3>مراكز الخدمة</h3>
+          <strong id="homeCentersCount">0</strong>
+          <a href="/user/service-centers">فتح</a>
+        </article>
+        <article class="user-stat-card">
+          <h3>قطع الغيار المتوافقة</h3>
+          <strong id="homePartsCount">0</strong>
+          <a href="/user/spare-parts">فتح</a>
+        </article>
+      </section>
+
+      <section class="user-feature-grid">
+        <a class="user-feature-card" href="/user/maintenance">
+          <h3>الصيانة</h3>
+          <p>إرسال طلب صيانة ومتابعة موافقة المدير والموعد.</p>
+        </a>
+        <a class="user-feature-card" href="/user/my-cars">
+          <h3>مركباتي</h3>
+          <p>عرض السيارات المضافة من مدير النظام.</p>
+        </a>
+        <a class="user-feature-card" href="/user/service-centers">
+          <h3>مراكز الخدمة</h3>
+          <p>تصفح الفنيين المختصين المعتمدين.</p>
+        </a>
+        <a class="user-feature-card" href="/user/fault-codes">
+          <h3>أكواد الأعطال</h3>
+          <p>ابحث عن كود العطل وتفاصيله مع حلول مقترحة.</p>
+        </a>
+        <a class="user-feature-card" href="/user/spare-parts">
+          <h3>قطع الغيار</h3>
+          <p>قطع متوافقة مع سياراتك المسجلة فقط.</p>
+        </a>
+        <a class="user-feature-card" href="/user/showroom-cars">
+          <h3>الموديلات الجديدة</h3>
+          <p>تصفح أحدث سيارات هيونداي المضافة من مدير النظام.</p>
+        </a>
+      </section>
+    </main>
+
+    <script src="/js/user-common.js"></script>
+    <script src="/js/pages/user-home.js"></script>
+  </body>
+</html>
+
+
+
+
+
+

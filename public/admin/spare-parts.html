@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إدارة قطع الغيار | Hyundai Syria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <div>
+          <h1>نظام مدير ما بعد البيع</h1>
+          <p>شركة هيونداي - سوريا</p>
+        </div>
+      </div>
+      <button id="logoutBtn" class="btn btn-outline" type="button">تسجيل الخروج</button>
+    </header>
+
+    <nav class="main-nav">
+      <a data-nav href="/admin/dashboard">الرئيسية</a>
+      <a data-nav href="/admin/customers">حسابات العملاء</a>
+      <a data-nav href="/admin/customer-cars">سيارات العملاء</a>
+      <a data-nav href="/admin/showroom-cars">سيارات المعرض</a>
+      <a data-nav href="/admin/technicians">الفنيون</a>
+      <a data-nav href="/admin/maintenance-requests">طلبات الصيانة</a>
+      <a data-nav href="/admin/spare-parts">قطع الغيار</a>
+    </nav>
+
+    <main class="page-container">
+      <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+
+      <section class="page-head">
+        <h2>إدارة قطع الغيار</h2>
+        <p>إضافة، تعديل، وحذف قطع الغيار الخاصة بخدمة ما بعد البيع.</p>
+      </section>
+
+      <section class="card">
+        <h3 id="sparePartFormTitle">إضافة قطعة غيار</h3>
+        <form id="sparePartForm">
+          <input id="sparePartId" type="hidden" />
+          <div class="form-grid">
+            <div class="form-group">
+              <label>اسم القطعة</label>
+              <input name="name" required />
+            </div>
+            <div class="form-group">
+              <label>رقم القطعة</label>
+              <input name="partNumber" required />
+            </div>
+            <div class="form-group">
+              <label>السعر</label>
+              <input name="price" type="number" min="0" step="0.01" required />
+            </div>
+            <div class="form-group">
+              <label>العملة</label>
+              <select name="currency" required>
+                <option value="">اختر</option>
+                <option value="SYP">ل.س (SYP)</option>
+                <option value="USD">$ (USD)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>الكمية المتوفرة</label>
+              <input name="stock" type="number" min="0" step="1" required />
+            </div>
+            <div class="form-group">
+              <label>نوع السيارة</label>
+              <select name="carType" required>
+                <option value="">اختر</option>
+                <option value="سيدان">سيدان</option>
+                <option value="SUV">SUV</option>
+                <option value="كروس أوفر">كروس أوفر</option>
+                <option value="هاتشباك">هاتشباك</option>
+                <option value="كهربائية/هجين">كهربائية/هجين</option>
+                <option value="فان">فان</option>
+                <option value="بيك أب">بيك أب</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>اسم السيارة</label>
+              <select name="carName" required>
+                <option value="">اختر نوع السيارة أولاً</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>من سنة الموديل</label>
+              <input name="modelYearFrom" type="number" min="2020" step="1" required />
+            </div>
+            <div class="form-group">
+              <label>إلى سنة الموديل</label>
+              <input name="modelYearTo" type="number" min="2020" step="1" required />
+            </div>
+            <div class="form-group">
+              <label>بلد المنشأ</label>
+              <input name="origin" required />
+            </div>
+            <div class="form-group full">
+              <label>الوصف</label>
+              <textarea name="description" rows="2" required></textarea>
+            </div>
+          </div>
+          <div class="actions-row">
+            <button id="sparePartSubmitBtn" class="btn btn-primary" type="submit">
+              إضافة القطعة
+            </button>
+            <button
+              id="sparePartCancelEditBtn"
+              class="btn"
+              type="button"
+              style="display: none"
+            >
+              إلغاء التعديل
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h3>قطع الغيار الحالية</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>اسم القطعة</th>
+                <th>رقم القطعة</th>
+                <th>السعر</th>
+                <th>المخزون</th>
+                <th>نوع السيارة</th>
+                <th>اسم السيارة</th>
+                <th>مجال الموديل</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="sparePartsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/app-common.js"></script>
+    <script src="/js/pages/spare-parts.js"></script>
+  </body>
+</html>
+
+

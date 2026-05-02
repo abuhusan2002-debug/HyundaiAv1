@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دليل الصيانة | Hyundai Service Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="user-body">
+    <header class="user-topbar">
+      <div class="user-brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <small>إدارة المركبات</small>
+      </div>
+      <nav class="user-nav-links">
+        <a data-user-nav href="/user/home">الرئيسية</a>
+        <a data-user-nav href="/user/my-cars">مركباتي</a>
+        <a data-user-nav href="/user/maintenance">الصيانة</a>
+        <a data-user-nav href="/user/smart-diagnosis">التشخيص الذكي</a>
+        <a data-user-nav href="/user/maintenance-guide">دليل الصيانة</a>
+        <a data-user-nav href="/user/fault-codes">أكواد الأعطال</a>
+        <a data-user-nav href="/user/spare-parts">قطع الغيار</a>
+        <a data-user-nav href="/user/service-centers">مراكز الخدمة</a>
+        <a data-user-nav href="/user/showroom-cars">الموديلات الجديدة</a>
+      </nav>
+      <button id="logoutBtn" class="btn btn-outline" type="button">تسجيل الخروج</button>
+    </header>
+
+    <main class="user-container guide-page">
+      <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+
+      <section class="page-head user-page-head guide-head">
+        <div class="guide-head-title">
+          <span class="guide-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" role="img">
+              <path d="M5.5 6.5A2.5 2.5 0 0 1 8 4h10.5v13.2a1.3 1.3 0 0 1-1.3 1.3H8a2.5 2.5 0 0 0-2.5 2.5V6.5Z" stroke="currentColor" stroke-width="1.7" />
+              <path d="M5.5 6.5A2.5 2.5 0 0 1 8 4v14.5M10.5 8h5.5M10.5 11h5.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+            </svg>
+          </span>
+          <div>
+            <h2>دليل الصيانة والإصلاح</h2>
+            <p>أدلة تفصيلية خطوة بخطوة لصيانة وإصلاح مركبتك</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card guide-filter-card">
+        <div class="guide-search-row">
+          <input id="guideSearchInput" type="text" placeholder="ابحث عن دليل صيانة..." />
+        </div>
+      </section>
+
+      <section id="guideCardsGrid" class="guide-cards-grid">
+        <article class="guide-card" data-guide-search>
+          <div class="guide-card-top"></div>
+          <div class="guide-card-body">
+            <div class="guide-card-head">
+              <h3>تغيير زيت المحرك وفلتر الزيت</h3>
+              <span class="guide-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" role="img">
+                  <path d="M5.5 6.5A2.5 2.5 0 0 1 8 4h10.5v13.2a1.3 1.3 0 0 1-1.3 1.3H8a2.5 2.5 0 0 0-2.5 2.5V6.5Z" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M5.5 6.5A2.5 2.5 0 0 1 8 4v14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              </span>
+            </div>
+            <p>دليل شامل لتغيير زيت المحرك وفلتر الزيت بشكل صحيح وآمن.</p>
+            <div class="guide-meta">
+              <span class="guide-pill tag">تغيير الزيت</span>
+              <span class="guide-pill time">30-45 دقيقة</span>
+              <span class="guide-pill level easy">سهل</span>
+            </div>
+            <div class="guide-models">
+              <span class="guide-model">Elantra 2020-2026</span>
+              <span class="guide-model">Sonata 2020-2026</span>
+              <span class="guide-model">Tucson 2020-2026</span>
+            </div>
+            <a class="guide-open-btn" href="/user/maintenance-guide/oil-change">عرض الدليل</a>
+          </div>
+        </article>
+
+        <article class="guide-card" data-guide-search>
+          <div class="guide-card-top"></div>
+          <div class="guide-card-body">
+            <div class="guide-card-head">
+              <h3>استبدال فلتر الهواء</h3>
+              <span class="guide-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" role="img">
+                  <path d="M5.5 6.5A2.5 2.5 0 0 1 8 4h10.5v13.2a1.3 1.3 0 0 1-1.3 1.3H8a2.5 2.5 0 0 0-2.5 2.5V6.5Z" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M5.5 6.5A2.5 2.5 0 0 1 8 4v14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              </span>
+            </div>
+            <p>خطوات بسيطة لتغيير فلتر الهواء وتحسين كفاءة المحرك.</p>
+            <div class="guide-meta">
+              <span class="guide-pill tag">استبدال الفلتر</span>
+              <span class="guide-pill time">10-15 دقيقة</span>
+              <span class="guide-pill level easy">سهل</span>
+            </div>
+            <div class="guide-models">
+              <span class="guide-model">All Models</span>
+            </div>
+            <a class="guide-open-btn" href="/user/maintenance-guide/air-filter">عرض الدليل</a>
+          </div>
+        </article>
+
+        <article class="guide-card" data-guide-search>
+          <div class="guide-card-top"></div>
+          <div class="guide-card-body">
+            <div class="guide-card-head">
+              <h3>استبدال شمعات الإشعال</h3>
+              <span class="guide-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" role="img">
+                  <path d="M5.5 6.5A2.5 2.5 0 0 1 8 4h10.5v13.2a1.3 1.3 0 0 1-1.3 1.3H8a2.5 2.5 0 0 0-2.5 2.5V6.5Z" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M5.5 6.5A2.5 2.5 0 0 1 8 4v14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              </span>
+            </div>
+            <p>دليل خطوة بخطوة لاستبدال شمعات الإشعال وتحسين أداء المحرك.</p>
+            <div class="guide-meta">
+              <span class="guide-pill tag">شمعات الإشعال</span>
+              <span class="guide-pill time">45-60 دقيقة</span>
+              <span class="guide-pill level medium">متوسطة</span>
+            </div>
+            <div class="guide-models">
+              <span class="guide-model">Accent 2020-2026</span>
+              <span class="guide-model">Elantra 2020-2026</span>
+              <span class="guide-model">Sonata 2020-2026</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <p id="guideSearchEmpty" class="empty-state" style="display: none">
+        لا يوجد دليل صيانة مطابق للبحث.
+      </p>
+    </main>
+
+    <script src="/js/user-common.js"></script>
+    <script src="/js/pages/user-maintenance-guide.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>قطع الغيار | Hyundai Service Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="user-body">
+    <header class="user-topbar">
+      <div class="user-brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <small>إدارة المركبات</small>
+      </div>
+      <nav class="user-nav-links">
+        <a data-user-nav href="/user/home">الرئيسية</a>
+        <a data-user-nav href="/user/my-cars">مركباتي</a>
+        <a data-user-nav href="/user/maintenance">الصيانة</a>
+        <a data-user-nav href="/user/smart-diagnosis">التشخيص الذكي</a>
+        <a data-user-nav href="/user/maintenance-guide">دليل الصيانة</a>
+        <a data-user-nav href="/user/fault-codes">أكواد الأعطال</a>
+        <a data-user-nav href="/user/spare-parts">قطع الغيار</a>
+        <a data-user-nav href="/user/service-centers">مراكز الخدمة</a>
+        <a data-user-nav href="/user/showroom-cars">الموديلات الجديدة</a>
+      </nav>
+      <button id="logoutBtn" class="btn btn-outline" type="button">تسجيل الخروج</button>
+    </header>
+
+    <main class="user-container">
+      <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+      <section class="page-head user-page-head">
+        <h2>قطع الغيار</h2>
+        <p>يتم عرض القطع المتوافقة مع سياراتك المسجلة فقط.</p>
+        <div id="sparePartsModels" class="model-list"></div>
+      </section>
+
+      <section class="card user-search-card">
+        <form id="sparePartSearchForm" class="user-search-form two-cols">
+          <select id="sparePartCategory">
+            <option value="all">جميع الفئات</option>
+          </select>
+          <input id="sparePartSearchInput" type="text" placeholder="ابحث عن قطعة غيار..." />
+          <button class="btn btn-primary" type="submit">بحث</button>
+        </form>
+      </section>
+
+      <section id="sparePartsCards" class="parts-grid"></section>
+    </main>
+
+    <script src="/js/user-common.js"></script>
+    <script src="/js/pages/user-spare-parts.js"></script>
+  </body>
+</html>
+
+
+
+
+
+

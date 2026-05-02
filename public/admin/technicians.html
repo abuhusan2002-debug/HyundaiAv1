@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إدارة الفنيين | Hyundai Syria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <div>
+          <h1>نظام مدير ما بعد البيع</h1>
+          <p>شركة هيونداي - سوريا</p>
+        </div>
+      </div>
+      <button id="logoutBtn" class="btn btn-outline" type="button">تسجيل الخروج</button>
+    </header>
+
+    <nav class="main-nav">
+      <a data-nav href="/admin/dashboard">الرئيسية</a>
+      <a data-nav href="/admin/customers">حسابات العملاء</a>
+      <a data-nav href="/admin/customer-cars">سيارات العملاء</a>
+      <a data-nav href="/admin/showroom-cars">سيارات المعرض</a>
+      <a data-nav href="/admin/technicians">الفنيون</a>
+      <a data-nav href="/admin/maintenance-requests">طلبات الصيانة</a>
+      <a data-nav href="/admin/spare-parts">قطع الغيار</a>
+    </nav>
+
+    <main class="page-container">
+      <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+
+      <section class="page-head">
+        <h2>إدارة الفنيين المختصين</h2>
+        <p>إضافة وتعديل العنوان، التقييم، وطرق التواصل مع كل فني.</p>
+      </section>
+
+      <section class="card">
+        <h3 id="technicianFormTitle">إضافة فني جديد</h3>
+        <form id="technicianForm">
+          <input id="technicianId" type="hidden" />
+          <div class="form-grid">
+            <div class="form-group">
+              <label>اسم الفني</label>
+              <input name="fullName" required />
+            </div>
+            <div class="form-group">
+              <label>التخصص</label>
+              <input name="specialty" required />
+            </div>
+            <div class="form-group">
+              <label>العنوان</label>
+              <input name="address" required />
+            </div>
+            <div class="form-group">
+              <label>المحافظة</label>
+              <select name="governorate" required>
+                <option value="">اختر المحافظة</option>
+                <option value="دمشق">دمشق</option>
+                <option value="ريف دمشق">ريف دمشق</option>
+                <option value="حلب">حلب</option>
+                <option value="حماة">حماة</option>
+                <option value="حمص">حمص</option>
+                <option value="دير الزور">دير الزور</option>
+                <option value="درعا">درعا</option>
+                <option value="طرطوس">طرطوس</option>
+                <option value="اللاذقية">اللاذقية</option>
+                <option value="الرقة">الرقة</option>
+                <option value="الحسكة">الحسكة</option>
+                <option value="السويداء">السويداء</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>التقييم (0 - 5)</label>
+              <input name="rating" type="number" min="0" max="5" step="0.1" required />
+            </div>
+            <div class="form-group">
+              <label>رقم جوال (اختياري)</label>
+              <input name="mobile" />
+            </div>
+            <div class="form-group">
+              <label>واتس آب (اختياري)</label>
+              <input name="whatsapp" />
+            </div>
+            <div class="form-group">
+              <label>بريد إلكتروني (اختياري)</label>
+              <input name="email" type="email" />
+            </div>
+            <div class="form-group full">
+              <label>ملاحظات</label>
+              <textarea name="notes" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="actions-row">
+            <button id="technicianSubmitBtn" class="btn btn-primary" type="submit">
+              إضافة الفني
+            </button>
+            <button
+              id="technicianCancelEditBtn"
+              class="btn"
+              type="button"
+              style="display: none"
+            >
+              إلغاء التعديل
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h3>الفنيون الحاليون</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>الاسم</th>
+                <th>التخصص</th>
+                <th>العنوان</th>
+                <th>المحافظة</th>
+                <th>التقييم</th>
+                <th>التواصل</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="techniciansTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/app-common.js"></script>
+    <script src="/js/pages/technicians.js"></script>
+  </body>
+</html>
+

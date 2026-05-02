@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الصيانة | Hyundai Service Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="user-body">
+    <header class="user-topbar">
+      <div class="user-brand">
+        <span class="brand-badge">HYUNDAI</span>
+        <small>إدارة المركبات</small>
+      </div>
+      <nav class="user-nav-links">
+        <a data-user-nav href="/user/home">الرئيسية</a>
+        <a data-user-nav href="/user/my-cars">مركباتي</a>
+        <a data-user-nav href="/user/maintenance">الصيانة</a>
+        <a data-user-nav href="/user/smart-diagnosis">التشخيص الذكي</a>
+        <a data-user-nav href="/user/maintenance-guide">دليل الصيانة</a>
+        <a data-user-nav href="/user/fault-codes">أكواد الأعطال</a>
+        <a data-user-nav href="/user/spare-parts">قطع الغيار</a>
+        <a data-user-nav href="/user/service-centers">مراكز الخدمة</a>
+        <a data-user-nav href="/user/showroom-cars">الموديلات الجديدة</a>
+      </nav>
+      <button id="logoutBtn" class="btn btn-outline" type="button">تسجيل الخروج</button>
+    </header>
+
+    <main class="user-container">
+      <div id="flashMessage" class="flash flash-error" style="display: none"></div>
+
+      <section class="page-head user-page-head maintenance-head">
+        <div>
+          <h2>الصيانة</h2>
+          <p>إدارة طلبات الصيانة</p>
+        </div>
+        <div class="maintenance-head-actions">
+          <button id="openMaintenanceArchiveBtn" class="btn maintenance-archive-btn" type="button">
+            سجل طلبات الصيانة
+          </button>
+          <button id="openMaintenanceFormBtn" class="btn maintenance-new-btn" type="button">
+            طلب صيانة جديد +
+          </button>
+        </div>
+      </section>
+
+      <section id="maintenanceFormPanel" class="card maintenance-form-panel" style="display: none">
+        <h3>طلب صيانة جديد</h3>
+        <form id="maintenanceRequestForm">
+          <div class="form-grid">
+            <div class="form-group full">
+              <label>اختر المركبة</label>
+              <select id="maintenanceCar" name="customerCar" required>
+                <option value="">اختر مركبة</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label>اختر الفني</label>
+              <select id="maintenanceTechnician" name="technician" required>
+                <option value="">اختر الفني</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>نوع الطلب</label>
+              <select name="requestType" required>
+                <option value="">اختر نوع الطلب</option>
+                <option value="صيانة دورية">صيانة دورية</option>
+                <option value="إصلاح">إصلاح</option>
+                <option value="فحص">فحص</option>
+                <option value="أخرى">أخرى</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>الأولوية</label>
+              <select name="priority" required>
+                <option value="">اختر الأولوية</option>
+                <option value="منخفضة">منخفضة</option>
+                <option value="متوسطة">متوسطة</option>
+                <option value="عالية">عالية</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label>التاريخ المفضل</label>
+              <input name="preferredDate" type="date" required />
+            </div>
+            <div class="form-group full">
+              <label>الوصف</label>
+              <textarea
+                name="description"
+                rows="3"
+                placeholder="صف المشكلة أو نوع الصيانة المطلوبة"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="actions-row">
+            <button class="btn btn-primary" type="submit">إرسال</button>
+            <button id="closeMaintenanceFormBtn" class="btn" type="button">إلغاء</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="maintenanceRequestsList" class="maintenance-list"></section>
+
+      <section id="maintenanceArchiveModal" class="modal-backdrop" style="display: none">
+        <div class="modal-card maintenance-archive-modal">
+          <div class="maintenance-archive-head">
+            <h3>أرشيف طلبات الصيانة</h3>
+            <button id="closeMaintenanceArchiveBtn" class="btn" type="button">إغلاق</button>
+          </div>
+          <section id="maintenanceArchiveList" class="maintenance-list maintenance-archive-list"></section>
+        </div>
+      </section>
+
+      <section id="maintenanceCancelModal" class="modal-backdrop" style="display: none">
+        <div class="modal-card maintenance-cancel-modal">
+          <h3>إلغاء طلب الصيانة</h3>
+          <form id="maintenanceCancelForm">
+            <input id="cancelRequestId" type="hidden" />
+            <div class="form-group">
+              <label for="cancelReason">سبب الإلغاء</label>
+              <textarea
+                id="cancelReason"
+                name="reason"
+                rows="3"
+                placeholder="اكتب سبب إلغاء الموعد بشكل واضح"
+                required
+              ></textarea>
+            </div>
+            <div class="actions-row">
+              <button class="btn btn-danger" type="submit">تأكيد الإلغاء</button>
+              <button id="closeMaintenanceCancelBtn" class="btn" type="button">تراجع</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/user-common.js"></script>
+    <script src="/js/pages/user-maintenance.js"></script>
+  </body>
+</html>
+
+
+
+
+
